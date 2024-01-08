@@ -5,8 +5,8 @@ import { vinta } from "vinta";
 
 export type DisClientOptions = ClientOptions & {
   paths: {
-    commands?: string;
-    events?: string;
+    commands?: string | string[];
+    events?: string | string[];
   };
 };
 
@@ -18,7 +18,7 @@ export class DisClient extends Client {
     if (events) this.setupEvents(events);
   }
 
-  private async setupCommands(path: string) {
+  private async setupCommands(path: string | string[]) {
     const { modules: commands } = await vinta<DisCommand>(path, {
       onlyDefault: true,
     });
@@ -40,7 +40,7 @@ export class DisClient extends Client {
     });
   }
 
-  private async setupEvents(path: string) {
+  private async setupEvents(path: string | string[]) {
     const { modules: events } = await vinta<DisEvent>(path, {
       onlyDefault: true,
     });
