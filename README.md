@@ -23,7 +23,7 @@ const client = new DisClient({
   },
 });
 
-client.login("DISCORD_APP_TOKEN");
+await client.login("DISCORD_APP_TOKEN");
 ```
 
 ### DisCommand
