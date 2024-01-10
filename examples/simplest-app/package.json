@@ -1,5 +1,8 @@
 {
+  "author": "faon",
+  "description": "Simplest app to make with the framework",
   "main": "src/index.ts",
+  "name": "simplest-app",
   "private": true,
   "scripts": {
     "start": "tsx --env-file .env ."
