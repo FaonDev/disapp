@@ -1,4 +1,5 @@
 .env*
+disapp-*.tgz
 dist
 node_modules
 yarn.lock

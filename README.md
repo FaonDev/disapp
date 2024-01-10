@@ -1,6 +1,6 @@
 # DisApp
 
-## An intuitive Discord app builder
+## An intuitive Discord framework
 
 ```sh-session
 bun add disapp
@@ -26,7 +26,7 @@ const client = new DisClient({
 await client.login("DISCORD_APP_TOKEN");
 ```
 
-### DisCommand
+### Example command
 
 ```ts
 // src/commands/ping.js
@@ -40,7 +40,7 @@ export default new DisCommand()
   });
 ```
 
-### DisEvent
+### Example event
 
 ```ts
 // src/events/ready.js

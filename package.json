@@ -26,10 +26,9 @@
   },
   "scripts": {
     "build": "tsc",
-    "example:simple": "node --env-file .env.example examples/simple/index.js",
     "format": "prettier --write .",
     "lint": "eslint --ext .ts ."
   },
   "types": "dist/index.d.ts",
-  "version": "14.14.1-1.0.1"
+  "version": "14.14.1-1.0.2"
 }

@@ -1,8 +1,8 @@
-disapp-*.tgz
 .gitignore
 .env*
 .eslintrc.json
 .prettierrc.json
+disapp-*.tgz
 examples
 node_modules
 src

@@ -1,6 +1,6 @@
-const { DisCommand } = require("../../../dist/index.js");
+import { DisCommand } from "disapp";
 
-module.exports = new DisCommand()
+export default new DisCommand()
   .setName("ping")
   .setDescription("See the application's ping")
   .setExecutable(async (interaction) => {
