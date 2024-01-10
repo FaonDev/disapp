@@ -8,4 +8,4 @@ const client = new DisClient({
   },
 });
 
-await client.login(process.env.DISCORD_BOT_TOKEN);
+await client.login(process.env.DISCORD_APP_TOKEN);
