@@ -4,18 +4,18 @@ import { Client, type ClientOptions } from "discord.js";
 import { vinta } from "vinta";
 
 export type DisClientOptions = ClientOptions & {
-  paths: {
+  paths?: {
     commands?: string | string[];
     events?: string | string[];
   };
 };
 
 export class DisClient extends Client {
-  constructor({ paths: { commands, events }, ...props }: DisClientOptions) {
+  constructor({ paths, ...props }: DisClientOptions) {
     super(props);
 
-    if (commands) this.setupCommands(commands);
-    if (events) this.setupEvents(events);
+    if (paths?.commands) this.setupCommands(paths.commands);
+    if (paths?.events) this.setupEvents(paths.events);
   }
 
   private async setupCommands(path: string | string[]) {
