@@ -17,11 +17,10 @@ import { DisClient, GatewayIntentBits } from "disapp";
 
 const client = new DisClient({
   intents: [GatewayIntentBits.Guilds],
-  paths: {
-    commands: "src/commands/*.js",
-    events: "src/events/*.js",
-  },
 });
+
+await client.setCommands("src/commands/*.js");
+await client.setEvents("src/events/*.js");
 
 await client.login("DISCORD_APP_TOKEN");
 ```

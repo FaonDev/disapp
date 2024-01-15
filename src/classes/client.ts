@@ -1,24 +1,12 @@
 import type { DisCommand } from "./command";
 import type { DisEvent } from "./event";
-import { Client, type ClientOptions } from "discord.js";
+import { Client } from "discord.js";
 import { vinta } from "vinta";
 
-export type DisClientOptions = ClientOptions & {
-  paths?: {
-    commands?: string | string[];
-    events?: string | string[];
-  };
-};
+type VintaPath = Parameters<typeof vinta>[0];
 
 export class DisClient extends Client {
-  constructor({ paths, ...props }: DisClientOptions) {
-    super(props);
-
-    if (paths?.commands) this.setupCommands(paths.commands);
-    if (paths?.events) this.setupEvents(paths.events);
-  }
-
-  private async setupCommands(path: string | string[]) {
+  public async setupCommands(path: VintaPath) {
     const { modules: commands } = await vinta<DisCommand>(path, {
       onlyDefault: true,
     });
@@ -38,13 +26,17 @@ export class DisClient extends Client {
       else
         await interaction.reply("You just tried to execute a invalid command");
     });
+
+    return this;
   }
 
-  private async setupEvents(path: string | string[]) {
+  public async setupEvents(path: VintaPath) {
     const { modules: events } = await vinta<DisEvent>(path, {
       onlyDefault: true,
     });
 
     for (const event of events) this.on(event.name, event.executable);
+
+    return this;
   }
 }
