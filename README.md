@@ -19,8 +19,8 @@ const client = new DisClient({
   intents: [GatewayIntentBits.Guilds],
 });
 
-await client.setCommands("src/commands/*.js");
-await client.setEvents("src/events/*.js");
+await client.setupCommands("src/commands/*.js");
+await client.setupEvents("src/events/*.js");
 
 await client.login("DISCORD_APP_TOKEN");
 ```
